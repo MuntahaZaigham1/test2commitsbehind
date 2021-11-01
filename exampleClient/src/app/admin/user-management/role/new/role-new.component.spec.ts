@@ -28,7 +28,7 @@ describe('RoleNewComponent', () => {
   };
   
   let formData = {...data};
-  delete formData.id;
+  // delete formData.id;
   describe('Unit tests', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({

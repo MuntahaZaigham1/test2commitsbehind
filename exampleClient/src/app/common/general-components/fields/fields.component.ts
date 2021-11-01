@@ -73,7 +73,7 @@ export class FieldsComponent implements OnInit {
     }
   }
   
-  handleFileInputArray(event:any, field: any, index) {
+  handleFileInputArray(event:any, field: any, index: any) {
     if (event.target.files.length > 0) {
      var file: any[] = event.target.files[0];
      (<FormArray>this.itemForm.get(`${field}FileSource`))?.controls[index]?.setValue(file);

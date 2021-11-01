@@ -10,6 +10,7 @@
   "strict": true,
   "strictPropertyInitialization": false,
   "noImplicitReturns": true,
+  "suppressImplicitAnyIndexErrors": true,
   "noFallthroughCasesInSwitch": true,
   "sourceMap": true,
   "declaration": false,

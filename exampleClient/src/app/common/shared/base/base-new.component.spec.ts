@@ -268,7 +268,7 @@ describe('BaseNewComponent', () => {
       }
       component.onPickerScroll(association);
 
-      expect(association.service.getAll).toHaveBeenCalledTimes(0);
+      expect(association.service?.getAll).toHaveBeenCalledTimes(0);
     });
 
     it('should load more data for the list of associated parent when some input is entered', async () => {
@@ -282,7 +282,9 @@ describe('BaseNewComponent', () => {
       association.searchValue = [searchField];
 
       spyOn(component, 'updatePickerPageInfo').and.returnValue();
-      spyOn(association.service, 'getAll').and.returnValue(of(parentData));
+      if(association.service){
+        spyOn(association.service, 'getAll').and.returnValue(of(parentData));
+      }
 
       component.pickerDialogRef = component.pickerDialogService.open({ DisplayField: '', Title: '' });
       component.onPickerSearch(searchValue, association);

@@ -26,7 +26,7 @@ export class MainNavComponent {
 	@ViewChild("navContent", { static: false }) navContent: MatSidenavContent;
 	
 	appName: string = 'example';
-	selectedLanguage: string;
+	selectedLanguage: any;
 	entityList = Entities;
 
 	hasTaskAppPermission: boolean = false;
@@ -66,7 +66,6 @@ export class MainNavComponent {
 
 		this.isSmallDevice$ = Global.isSmallDevice$;
 		this.isMediumDevice$ = Global.isMediumDevice$;
-		
 		this.selectedLanguage = localStorage.getItem('selectedLanguage');
 		this.authenticationService.permissionsChange.subscribe(() => {
 			this.setPermissions();

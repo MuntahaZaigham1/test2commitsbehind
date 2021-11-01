@@ -25,22 +25,21 @@ module.exports = function (config) {
         },
         jasmineHtmlReporter: {
           suppressAll: true // removes the duplicated traces
-      }
-    },
-    coverageReporter: {
-          dir: require('path').join(__dirname, './coverage/billsApp'),
+      },
+      coverageReporter: {
+        dir: require('path').join(__dirname, './coverage/billsApp'),
           subdir: '.',
           reporters: [
             { type: 'html' },
             { type: 'text-summary' }
           ]
-    },
-    reporters: ['progress', 'kjhtml'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true  });
+        },
+        reporters: ['progress', 'kjhtml'],
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_INFO,
+        autoWatch: true,
+        browsers: ['Chrome'],
+        singleRun: false,
+        restartOnFileChange: true  });
 };

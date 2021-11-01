@@ -46,9 +46,9 @@ export class BaseDetailsComponent<E> implements OnInit, CanDeactivateGuard {
   pickerDialogRef: MatDialogRef<PickerComponent>;
 
   title: string = 'Title';
-  item: E | undefined;
+  item: E | any;
   parentUrl: string;
-  idParam: string;
+  idParam: any;
   itemForm: FormGroup;
   errorMessage = '';
   loading = false;
@@ -101,7 +101,7 @@ export class BaseDetailsComponent<E> implements OnInit, CanDeactivateGuard {
 
   ngOnInit() {
     this.setPermissions();
-    this.idParam = this.route.snapshot.paramMap.get('id');
+      this.idParam = this.route.snapshot.paramMap.get('id');
   }
 
   /**
@@ -280,7 +280,7 @@ association.service?.getAll(this.searchValuePicker, this.currentPickerPage * thi
     this.searchValuePicker = [searchField];
 
     association.service
-association.service?.getAll(this.searchValuePicker, this.currentPickerPage * this.pickerPageSize, this.pickerPageSize)      .subscribe(
+association.service?.getAll(this.searchValuePicker, this.currentPickerPage * this.pickerPageSize, this.pickerPageSize).subscribe(
         (items) => {
           this.isLoadingPickerResults = false;
           this.pickerDialogRef.componentInstance.items = items;
@@ -312,8 +312,10 @@ association.service?.getAll(this.searchValuePicker, this.currentPickerPage * thi
    */
   getQueryParams(association: IAssociationEntry) {
     let queryParam: any = {};
-    association.column?.forEach((col) => {
-      queryParam[col.key] = this.item[col.referencedkey];
+    if(association.column)
+    association.column?.forEach((col) => 
+    {
+     queryParam[col.key] = this.item[col.referencedkey];
     });
     return queryParam;
   }

@@ -207,7 +207,7 @@ export class BaseListComponent<E> implements OnInit {
     this.isLoadingResults = true;
     this.initializePageInfo();
     let sortVal = this.getSortValue();
-    if (this.selectedAssociation !== undefined) {
+    if (this.selectedAssociation.service && this.selectedAssociation !== undefined) {
       this.itemsObservable = this.selectedAssociation.service?.getAssociations(
         this.selectedAssociation.url,
         ServiceUtils.encodeId(this.selectedAssociation.column),
@@ -284,7 +284,7 @@ export class BaseListComponent<E> implements OnInit {
     this.isLoadingResults = true;
     this.initializePageInfo();
     let sortVal = this.getSortValue();
-    if (this.selectedAssociation !== undefined) {
+    if (this.selectedAssociation.service && this.selectedAssociation !== undefined) {
       this.itemsObservable = this.selectedAssociation.service?.getAssociations(
         this.selectedAssociation.url,
         ServiceUtils.encodeId(this.selectedAssociation.column),
@@ -443,7 +443,7 @@ export class BaseListComponent<E> implements OnInit {
     if (!this.isLoadingResults && this.hasMoreRecords && this.lastProcessedOffset < this.items.length && this.selectedAssociation.column) {
       this.isLoadingResults = true;
       let sortVal = this.getSortValue();
-      if (this.selectedAssociation !== undefined) {
+      if (this.selectedAssociation.service && this.selectedAssociation !== undefined) {
         this.itemsObservable = this.selectedAssociation.service?.getAssociations(
           this.selectedAssociation.url,
           ServiceUtils.encodeId(this.selectedAssociation.column),

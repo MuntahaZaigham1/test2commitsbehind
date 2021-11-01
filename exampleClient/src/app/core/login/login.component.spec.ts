@@ -43,7 +43,7 @@ describe('LoginComponent', () => {
     component = fixture.componentInstance;
     router = TestBed.inject(Router);
     aroutes = TestBed.inject(ActivatedRoute);
-    navigationSpy = spyOn(router, 'navigate').and.and.callThrough();
+    navigationSpy = spyOn(router, 'navigate').and.callThrough();
     fixture.detectChanges();
   });
 

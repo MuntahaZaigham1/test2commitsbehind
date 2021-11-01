@@ -301,12 +301,13 @@ describe('BaseDetailsComponent', () => {
     component.lastProcessedOffsetPicker = -1;
     component.currentPickerPage = 0;
     component.isLoadingPickerResults = false;
-
-    spyOn(association.service, 'getAll').and.returnValue(
-      Observable.create((observer: any) => {
-        observer.error(new Error('an error occurred'));
-      })
-    );
+    if(association.service){
+      spyOn(association.service, 'getAll').and.returnValue(
+        Observable.create((observer: any) => {
+          observer.error(new Error('an error occurred'));
+        })
+      );
+    }
     spyOn(component.errorService, 'showError').and.returnValue();
 
     component.onPickerScroll(association);

@@ -15,10 +15,9 @@ export class ServiceUtils {
     if (searchFields !== null && searchFields !== undefined) {
       searchFields.forEach((field) => {
         searchString += `${field.fieldName}[${field.operator}]=`;
-
-        let searchValue: string = field.searchValue;
-        let startingValue: string = field.startingValue;
-        let endingValue: string = field.endingValue;
+        let searchValue: any = field.searchValue;
+        let startingValue: any = field.startingValue;
+        let endingValue: any = field.endingValue;
 
         if (field.operator === operatorType.Range) {
           if (startingValue !== null) {

@@ -41,7 +41,7 @@ export class ListFiltersComponent implements OnInit {
   addFieldDialogRef: MatDialogRef<any>;
 
   mySelector: Boolean = false;
-  field: IListColumn;
+  field: IListColumn | any;
 
   constructor(private formBuilder: FormBuilder, public dialog: MatDialog, public translate: TranslateService) {}
 
